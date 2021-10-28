@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+ <link rel="stylesheet" href= "http://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+ <style>
+  head, body{
+    font: 40px Verdana;
+    text-align: center;
+    color: #52B2BF;
+    font-weight: bold;
+    background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(fireimage1.jpg);
+  }
+    th, td, p {
+        font:14px courier;
+        position: center;
+    }
+    table, th, td 
+    {
+        border: 3px solid ;
+        border: solid 1px #59788e;
+        border-collapse: collapse;
+        padding: 2px 3px;
+        text-align: center;
+        color: white;
+        background-color: black;
+    }
+    th {
+        font-weight:bold;
+        font-style: white;
+        background-color: #016064;
+    }
+    input{
+      font: 20px Verdana;
+      position: center;
+    }
+    form{
+      color: white;
+      font: 20px sans-serif;
+      position: center;
+    }
+</style>
+ <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+ <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+</head>
+<body>
+    <title>Bacterial Microcompartment Website</title> <br>
+    <head>BACTERIAL MICROCOMPARTMENTS</head>
+  
+<br>
+<form>
+  
+  <label for="jsonFile">Enter JSON file:</label>
+  <input type="text" id="jsonFile" name="jsonFile">
+  </form>
+    <table id="example"></table>
+    <br>
+
+    <script>
+    $.getJSON({url: "testData.json", success: function (data) { 
+      $('#example').DataTable( {
+          data: data,
+          columns: [
+        { data: 'Locus Type',
+      title: 'Locus Type' },
+        { data: 'Organism Name',
+        title: 'Organism Name' },
+        { data: 'Start Coordinate',
+      title: 'Start Coordinate' },
+        { data: 'Stop Coordinate',
+      title: 'Stop Coordinate' }
+    ]
+        } );
+        }})
+
+
+     </script>
+</body>
+</html>
